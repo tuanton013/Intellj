@@ -53,4 +53,12 @@ public class TTIOManager {
         }
     }
 
+    public void initPrompt(){
+        System.out.println("Welcome to Tic Tac Toe!");
+    }
+
+    public void QuitGameMessage(){
+        System.out.println("Thank you for playing! Come back to waste more of your time!");
+    }
+
 }
