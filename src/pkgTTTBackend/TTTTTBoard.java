@@ -13,6 +13,8 @@ public class TTTTTBoard {
 
 
     public TTTTTBoard() {
+        totalValidentries = 0;
+        winner_char = defualt_char;
         clearBoard();
 
     }
@@ -22,7 +24,15 @@ public class TTTTTBoard {
     }
 
     public void testPlay() {
-
+        int row;
+        int col;
+        while (totalValidentries < ROW * COL) {
+            row = (int) (Math.random() * ROW);
+            col = (int) (Math.random() * COL);
+            if (updateBoard(row, col)) {
+                TTIOManager.printBoard(this);
+            }
+        }
     }
 
     public void clearBoard() {
@@ -43,10 +53,12 @@ public class TTTTTBoard {
     }
 
     public void play(){
-        int row, col;
+        int row;
+        int col;
         while (totalValidentries < ROW * COL) {
-            row = (int) (Math.random() * ROW);
-            col = (int) (Math.random() * COL);
+            TTIOManager.rowColPrompt();
+            row = TTIOManager.readIntegerInput(0, ROW - 1);
+            col = TTIOManager.readIntegerInput(0, COL - 1);
             if (updateBoard(row, col)) {
                 TTIOManager.printBoard(this);
             }
