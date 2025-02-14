@@ -40,7 +40,7 @@ public class TTIOManager {
         return input;
     }
 
-    public void printBoard(TTTTTBoard board){
+    public static void printBoard(TTTTTBoard board){
         char[][] boardArray = board.getBoard();
         System.out.println("-------------");
         for (int i = 0; i < 3; i++) {
@@ -53,7 +53,7 @@ public class TTIOManager {
         }
     }
 
-    public void initPrompt(){
+    public static void initPrompt(){
         System.out.println("Welcome to Tic Tac Toe!");
     }
 

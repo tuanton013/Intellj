@@ -10,6 +10,8 @@ public class TTTTTBoard {
     private char[][] ttt_board = new char[ROW][COL];
     private char player_char = 'P';
 
+
+
     public TTTTTBoard() {
         clearBoard();
 
@@ -46,11 +48,7 @@ public class TTTTTBoard {
             row = (int) (Math.random() * ROW);
             col = (int) (Math.random() * COL);
             if (updateBoard(row, col)) {
-                printBoard(this);
-                if (checkWinner()) {
-                    System.out.println("Winner is " + winner_char);
-                    break;
-                }
+                TTIOManager.printBoard(this);
             }
         }
     }
