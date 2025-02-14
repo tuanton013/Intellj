@@ -26,4 +26,17 @@ public class TTIOManager {
     public void boardCompleteMessage(){
         System.out.println("Board is full. Game over.");
     }
+
+    public int readIntegerInput(int lowerBound, int upperBound){
+        int input;
+        while (true) {
+            input = myScanner.nextInt();
+            if (input >= lowerBound && input <= upperBound) {
+                break;
+            } else {
+                System.out.println("Invalid input. Try again.");
+            }
+        }
+        return input;
+    }
 }
