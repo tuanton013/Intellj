@@ -10,6 +10,11 @@ public class TTTTTBoard {
     private char[][] ttt_board = new char[ROW][COL];
     private char player_char = 'P';
 
+    public TTTTTBoard() {
+        clearBoard();
+
+    }
+
     public char[][] getBoard() {
         return ttt_board;
     }
@@ -26,4 +31,27 @@ public class TTTTTBoard {
         }
     }
 
+    private boolean updateBoard(int row, int col){
+        if (ttt_board[row][col] == defualt_char) {
+            ttt_board[row][col] = player_char;
+            totalValidentries++;
+            return true;
+        }
+        return false;
+    }
+
+    public void play(){
+        int row, col;
+        while (totalValidentries < ROW * COL) {
+            row = (int) (Math.random() * ROW);
+            col = (int) (Math.random() * COL);
+            if (updateBoard(row, col)) {
+                printBoard(this);
+                if (checkWinner()) {
+                    System.out.println("Winner is " + winner_char);
+                    break;
+                }
+            }
+        }
+    }
 }
