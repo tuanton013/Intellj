@@ -18,7 +18,7 @@ public class TTIOManager {
     }
 
     public static boolean readQuitInput(){
-        System.out.println("Enter 'q' to quit the game or press anything to conitnue: .");
+        System.out.println("Enter 'q' to quit the game or press any single character to conitnue: .");
         String input = myScanner.next();
         return input.equals("q");
     }
@@ -42,8 +42,6 @@ public class TTIOManager {
     public static void printBoard(TTTTTBoard board){
         char[][] boardArray = board.getBoard();
         System.out.println();
-
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 System.out.print(boardArray[i][j]+ "  ");

@@ -2,6 +2,8 @@ package pkgTTTBackend;
 
 import java.sql.SQLOutput;
 
+import static pkgTTTBackend.TTIOManager.printBoard;
+
 public class TTTTTBoard {
     private char machine_char = 'M';
     private final int ROW = 3;
@@ -37,6 +39,7 @@ public class TTTTTBoard {
                 if (updateBoard(row, col)) {
                     TTIOManager.printBoard(this);
                 }else {
+                    System.out.println();
                     System.out.println(("Attempt to fill cell [" + row + "][" + col + "] which is already filled."));
                     System.out.println("cell [" + row + "][" + col + "] is not available. Try again.");
                 }
@@ -50,6 +53,7 @@ public class TTTTTBoard {
                 ttt_board[i][j] = defualt_char;
             }
         }
+        totalValidentries = 0;
     }
 
     private boolean updateBoard(int row, int col){
@@ -62,9 +66,10 @@ public class TTTTTBoard {
     }
 
     public void play(){
+        TTIOManager.printBoard(this);
         int row;
         int col;
-        while (totalValidentries < ROW * COL || !TTIOManager.readQuitInput()) {
+        while (totalValidentries < ROW * COL) {
             TTIOManager.rowColPrompt();
             row = TTIOManager.readIntegerInput(0, ROW - 1);
             col = TTIOManager.readIntegerInput(0, COL - 1);
