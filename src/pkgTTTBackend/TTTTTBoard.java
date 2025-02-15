@@ -24,13 +24,19 @@ public class TTTTTBoard {
     }
 
     public void testPlay() {
+        int [] rows = {0, 1, 2, 1, 0, 0, 1, 1, 2, 2};
+        int [] cols = {0, 1, 2, 1, 1, 2, 0, 2, 0, 1};
         int row;
         int col;
         while (totalValidentries < ROW * COL) {
-            row = (int) (Math.random() * ROW);
-            col = (int) (Math.random() * COL);
-            if (updateBoard(row, col)) {
-                TTIOManager.printBoard(this);
+            for(int i = 0; i < 10; i++){
+                row = rows[i];
+                col = cols[i];
+                if (updateBoard(row, col)) {
+                    TTIOManager.printBoard(this);
+                }else {
+                    TTIOManager.cellNotFreeMessage(row, col);
+                }
             }
         }
     }

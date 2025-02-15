@@ -8,7 +8,7 @@ public class Driver {
 
         initPrompt();
         printBoard(my_board);
-//        my_board.testPlay();
+        my_board.testPlay();
 //        System.out.println("\nStart interactive play");
 //        my_board.clearBoard();
         my_board.play();
