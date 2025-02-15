@@ -1,12 +1,14 @@
 package pkgTTTBackend;
 
+import java.sql.SQLOutput;
+
 public class TTTTTBoard {
     private char machine_char = 'M';
     private final int ROW = 3;
     private final int COL = 3;
     private int totalValidentries;
     private char winner_char;
-    private char defualt_char = ' ';
+    private char defualt_char = '-';
     private char[][] ttt_board = new char[ROW][COL];
     private char player_char = 'P';
 
@@ -35,7 +37,8 @@ public class TTTTTBoard {
                 if (updateBoard(row, col)) {
                     TTIOManager.printBoard(this);
                 }else {
-                    TTIOManager.cellNotFreeMessage(row, col);
+                    System.out.println(("Attempt to fill cell [" + row + "][" + col + "] which is already filled."));
+                    System.out.println("cell [" + row + "][" + col + "] is not available. Try again.");
                 }
             }
         }
