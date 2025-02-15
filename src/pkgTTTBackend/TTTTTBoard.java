@@ -10,9 +10,9 @@ public class TTTTTBoard {
     private final int COL = 3;
     private int totalValidentries;
     private char winner_char;
-    private char defualt_char = '-';
-    private char[][] ttt_board = new char[ROW][COL];
-    private char player_char = 'P';
+    private final char defualt_char = '-';
+    private final char[][] ttt_board = new char[ROW][COL];
+    private final char player_char = 'P';
 
 
 
