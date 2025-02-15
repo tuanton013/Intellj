@@ -9,7 +9,7 @@ public class TTIOManager {
 
     private static Scanner myScanner = new Scanner(System.in);
 
-    public void cellNotFreeMessage(int row, int col){
+    public static void cellNotFreeMessage(int row, int col){
         System.out.println("Cell [" + row + "][" + col + "] is not free. Try again.");
     }
 
@@ -18,12 +18,12 @@ public class TTIOManager {
     }
 
     public static boolean readQuitInput(){
-        System.out.print("Do you want to quit? Enter q: ");
+        System.out.println("Enter 'q' to quit the game or press anything to conitnue: .");
         String input = myScanner.next();
         return input.equals("q");
     }
 
-    public void boardCompleteMessage(){
+    public static void boardCompleteMessage(){
         System.out.println("Board is full. Game over.");
     }
 
@@ -33,7 +33,8 @@ public class TTIOManager {
             input = myScanner.nextInt();
             if(input >= lowerBound && input <= upperBound)
                 break;
-            rowColPrompt();
+            else
+                System.out.println("Invalid input. Try again.");
         }
         return input;
     }
@@ -41,6 +42,7 @@ public class TTIOManager {
     public static void printBoard(TTTTTBoard board){
         char[][] boardArray = board.getBoard();
         System.out.println("-------------");
+
         for (int i = 0; i < 3; i++) {
             System.out.print("| ");
             for (int j = 0; j < 3; j++) {
@@ -57,7 +59,7 @@ public class TTIOManager {
         System.out.println("Welcome to Tic Tac Toe!");
     }
 
-    public void QuitGameMessage(){
+    public static void QuitGameMessage(){
         System.out.println("Thank you for playing! Come back to waste more of your time!");
     }
 

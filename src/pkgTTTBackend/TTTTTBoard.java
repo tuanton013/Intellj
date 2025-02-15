@@ -55,13 +55,26 @@ public class TTTTTBoard {
     public void play(){
         int row;
         int col;
-        while (totalValidentries < ROW * COL) {
+        while (totalValidentries < ROW * COL || !TTIOManager.readQuitInput()) {
             TTIOManager.rowColPrompt();
             row = TTIOManager.readIntegerInput(0, ROW - 1);
             col = TTIOManager.readIntegerInput(0, COL - 1);
             if (updateBoard(row, col)) {
                 TTIOManager.printBoard(this);
+            } else {
+                TTIOManager.cellNotFreeMessage(row, col);
+            }
+
+            if(totalValidentries == ROW * COL){
+                TTIOManager.boardCompleteMessage();
+                break;
+            }
+
+            if(TTIOManager.readQuitInput()){
+                TTIOManager.QuitGameMessage();
+                break;
             }
         }
+
     }
 }
